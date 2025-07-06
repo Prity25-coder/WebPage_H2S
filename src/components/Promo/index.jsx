@@ -1,4 +1,4 @@
-function Promo() {
+ function Promo() {
   return (
     <div className="relative overflow-hidden bg-gradient-to-l from-black via-[#0c0c0d] to-[#24033a] ">
       <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
@@ -31,11 +31,14 @@ function Promo() {
               >
                 <div className="absolute transform sm:top-0 sm:left-1/2 sm:translate-x-8 lg:top-1/2 lg:left-1/2 lg:translate-x-8 lg:-translate-y-1/2">
                   <div className="flex items-center space-x-6 lg:space-x-8">
+
                     <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+
                       <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+
                         <img
                           src="/img/img_1.jpg"
-                          className="size-full object-cover transition duration-300 ease-in-out hover:scale-105 hover:rotate-1"
+                          className="size-full object-cover transition duration-300 ease-in-out hover:scale-105 hover:rotate-1 "
                         />
                       </div>
                       <div className="h-64 w-sm overflow-hidden rounded-lg">
