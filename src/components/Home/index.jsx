@@ -1,3 +1,5 @@
+import fashionGirl from "../../assets/img/fashion_girl.png"
+
 const Home = () => {
   return (
     <main className=" text-white font-sans overflow-x-hidden">
@@ -14,7 +16,7 @@ const Home = () => {
           </h1>
 
           <img
-            src="/img/fashion_girl.png"
+            src={fashionGirl}
             alt="Astronaut Girl"
             className=" bg-purple-700 "
           />

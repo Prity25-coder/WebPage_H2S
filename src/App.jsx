@@ -9,11 +9,16 @@ import Home from "./components/Home";
 import Participate from "./components/Participate";
 import Promo from "./components/Promo";
 
+import bg from "./assets/img/background_1.jpg";
+
 function App() {
   return (
     <>
       <div className="">
-        <div className=" min-h-screen bg-[url('/img/background_1.jpg')] bg-cover bg-center">
+        <div
+          className=" min-h-screen  bg-cover bg-center"
+          style={{ backgroundImage: `url(${bg})` }}
+        >
           <Header />
           <Home />
         </div>

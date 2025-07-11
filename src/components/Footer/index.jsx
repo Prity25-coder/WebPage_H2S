@@ -1,6 +1,11 @@
+import page3 from "../../assets/img/page_3.png";
+
 function Footer() {
   return (
-    <div className="min-h-[50vh] bg-[url('/img/page_3.png')] bg-cover bg-center size-full bg-black"></div>
+    <div
+      className="min-h-[50vh] bg-cover bg-center size-full bg-black"
+      style={{ backgroundImage: `url(${page3})` }}
+    ></div>
   );
 }
 

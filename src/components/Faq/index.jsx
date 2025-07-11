@@ -1,3 +1,5 @@
+import page2 from "../../assets/img/page_2.jpg";
+
 const faqs = [
   {
     id: "01",
@@ -28,7 +30,10 @@ const faqs = [
 function Faq() {
   return (
     <>
-      <div className="min-h-[50vh] bg-[url('/img/page_2.jpg')] bg-cover bg-center"></div>
+      <div
+        className="min-h-[50vh] bg-cover bg-center"
+        style={{ backgroundImage: `url(${page2})` }}
+      ></div>
 
       <div className="relative z-10 py-20 px-6 md:px-20 bg-gradient-to-b from-[#080808] to-[#15002b] text-white">
         <div className="max-w-6xl mx-auto">

@@ -1,45 +1,10 @@
+import layer2 from "../../assets/img/layer_2.png";
+
 const Astronaut = () => {
   return (
     <div className="relative py-20 bg-black text-white overflow-hidden">
-      {/* Animation Keyframes */}
-      <style jsx>{`
-        @keyframes float {
-          0% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-          100% {
-            transform: translateY(0px);
-          }
-        }
-        @keyframes orbit {
-          0% {
-            transform: rotate(0deg) translateX(100px) rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg) translateX(100px) rotate(-360deg);
-          }
-        }
-        @keyframes orbit-reverse {
-          0% {
-            transform: rotate(0deg) translateX(80px) rotate(0deg);
-          }
-          100% {
-            transform: rotate(-360deg) translateX(80px) rotate(360deg);
-          }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-orbit {
-          animation: orbit 18s linear infinite;
-        }
-        .animate-orbit-reverse {
-          animation: orbit-reverse 14s linear infinite;
-        }
-      `}</style>
+      {/* Animation Keyframes ---> index.css file */}
+
 
       {/* Radial background circles */}
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none z-0">
@@ -85,7 +50,7 @@ const Astronaut = () => {
 
           {/* Astronaut Image */}
           <img
-            src="/img/layer_2.png"
+            src={layer2}
             alt="Astronaut"
             className="h-64 w-64 object-contain animate-float"
           />
@@ -109,8 +74,8 @@ const Astronaut = () => {
             systems at scale.
           </p>
         </div>
+        
       </div>
-      
     </div>
   );
 };

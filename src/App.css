@@ -1,0 +1,15 @@
+@keyframes scrollTimeline {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.auto-scroll {
+  animation: scrollTimeline 30s linear infinite;
+}
+.auto-scroll:hover {
+  animation-play-state: paused;
+}
