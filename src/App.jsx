@@ -8,29 +8,21 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Participate from "./components/Participate";
 import Promo from "./components/Promo";
-
-import bg from "./assets/img/background_1.jpg";
+import CustomCursor from "./components/CustomCursor";
 
 function App() {
   return (
-    <>
-      <div className="">
-        <div
-          className=" min-h-screen  bg-cover bg-center"
-          style={{ backgroundImage: `url(${bg})` }}
-        >
-          <Header />
-          <Home />
-        </div>
-
-        <Promo />
-        <Astronaut />
-        <Participate />
-        <Hackathon />
-        <Faq />
-        <Footer />
-      </div>
-    </>
+    <div className="relative">
+      <CustomCursor />
+      <Header />
+      <Home />
+      <Promo />
+      <Astronaut />
+      <Participate />
+      <Hackathon />
+      <Faq />
+      <Footer />
+    </div>
   );
 }
 

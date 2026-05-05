@@ -1,126 +1,145 @@
-import fashionGirl from "../../assets/img/fashion_girl.png"
+import { motion } from "framer-motion";
+import heroBg from "../../assets/img/hero-bg.jpg";
+import heroGirl from "../../assets/img/hero-fashion-girl.svg";
+import eligibilityBg from "../../assets/img/eligibility-bg.svg";
+import TiltWrapper from "../TiltWrapper";
 
 const Home = () => {
   return (
-    <main className=" text-white font-sans overflow-x-hidden">
+    <main className="text-white">
       {/* Hero Section */}
-
-      <section className="relative w-full min-h-screen flex items-center justify-between px-16 py-10 ">
-        {/* Left - Image */}
-        <div className="z-10 relative ml-40">
-          <h1 className="text-6xl font-extrabold leading-tight ml-96">
-            CODE THE <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-purple-600 outline">
-              FUTURE
-            </span>
-          </h1>
-
-          <img
-            src={fashionGirl}
-            alt="Astronaut Girl"
-            className=" bg-purple-700 "
-          />
-
-          <h1 className="flex justify-center">
-            WHERE INNOVATION BECOMES REALITY
-          </h1>
-        </div>
-
-        <div className="mt-10">
-          <a
-            href="#"
-            className="bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:opacity-90 px-6 py-3 text-white font-semibold rounded-md border border-white"
+      <section 
+        className="relative min-h-[90vh] flex items-center px-6 md:px-20 pt-32 overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      >
+        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+          {/* Left - Text Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="z-10 text-center lg:text-left"
           >
-            Register Now
-          </a>
-        </div>
-      </section>
+            <h1 className="text-6xl md:text-8xl font-black leading-[0.85] tracking-tighter mb-8">
+              <span className="block">CODE THE</span>
+              <span className="block text-outline bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-500">
+                FUTURE
+              </span>
+            </h1>
+            
+            <p className="text-sm md:text-base text-gray-400 mb-10 max-w-md uppercase tracking-[0.3em] font-bold mx-auto lg:mx-0">
+              Where Innovation Becomes Reality
+            </p>
 
-      {/* About Hackathon Section */}
-
-      <section className="py-20 px-8 md:px-20 bg-black relative text-center">
-        <h3 className="text-purple-500 text-lg font-semibold mb-2">
-          ABOUT HACKATHON
-        </h3>
-
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          WHO CAN PARTICIPATE?
-        </h2>
-
-        <p className="max-w-3xl mx-auto text-lg leading-relaxed mb-8">
-          Welcome to the Lorem Ipsum Innovation Hackathon, an exhilarating
-          platform designed to foster innovation and creativity in the domain of
-          advanced technology and futuristic solutions. Organized by the
-          National Center for Applied Research and supported by Hack2skill, this
-          hackathon invites undergraduate students, graduate/postgraduate
-          students, and PhD researchers to collaborate and solve critical
-          challenges.
-        </p>
-
-        <button className="bg-purple-600 text-white px-6 py-3 font-semibold rounded-full hover:bg-purple-700 transition-colors">
-          Apply Now
-        </button>
-
-        {/* Left Decorative Blocks */}
-        <div className="absolute left-4 top-16 hidden md:block">
-          <div className="grid grid-cols-2 gap-1">
-            <div></div>
-            <div className="w-6 h-6 bg-purple-600"></div>
-            <div className="w-20 h-6 bg-purple-600"></div>
-            <div></div>
-            <div></div>
-
-            <div className="w-6 h-6 bg-purple-600"></div>
-            <div className="w-20 h-6 bg-purple-600"></div>
-            <div></div>
-            <div></div>
-            <div className="w-6 h-6 bg-purple-600"></div>
-          </div>
-        </div>
-
-        {/* Right Decorative Blocks */}
-        <div className="absolute right-4 top-16 hidden md:block">
-          <div className="grid grid-cols-2 gap-1">
-            <div></div>
-            <div className="w-6 h-6 bg-purple-600"></div>
-            <div className="w-20 h-6 bg-purple-600"></div>
-            <div></div>
-            <div></div>
-
-            <div className="w-6 h-6 bg-purple-600"></div>
-            <div className="w-20 h-6 bg-purple-600"></div>
-            <div></div>
-            <div></div>
-            <div className="w-6 h-6 bg-purple-600"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Participation Cards */}
-      <section className="bg-black py-16 px-6 md:px-20">
-        <h3 className="text-center text-purple-500 text-lg mb-4 font-semibold">
-          WHO CAN PARTICIPATE?
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-6xl mx-auto">
-          {[
-            "Undergraduate Students",
-            "Graduate/ Postgraduate Students",
-            "PhD Students/ Research Scholars",
-          ].map((title, idx) => (
-            <div
-              key={idx}
-              className="bg-gradient-to-br from-[#2a143f] to-[#1b112d] rounded-xl p-8 text-white shadow-md hover:shadow-purple-500/50 transition"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block relative"
             >
-              <h4 className="text-xl font-semibold mb-2">{title}</h4>
-            </div>
-          ))}
+              {/* Decorative corners for the button as seen in Figma */}
+              <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-white/40"></div>
+              <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-white/40"></div>
+              
+              <a
+                href="#register"
+                className="inline-block bg-white/5 backdrop-blur-md border border-white/20 text-white px-12 py-5 rounded-sm font-bold text-lg hover:bg-white/15 transition-all duration-300"
+              >
+                Register Now
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right - Image Content */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative flex justify-center lg:justify-end"
+          >
+            <TiltWrapper>
+              <div className="relative group cursor-none" data-hover="image" data-cursor-text="VIEW">
+                <img
+                  src={heroGirl}
+                  alt="Hackathon Hero"
+                  className="w-full max-w-[550px] h-auto drop-shadow-[0_0_80px_rgba(124,58,237,0.4)]"
+                />
+              </div>
+            </TiltWrapper>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-24 px-6 md:px-20 bg-bg-dark text-center relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute left-6 top-1/2 -translate-y-1/2 w-32 h-64 opacity-30 pointer-events-none">
+          <div className="grid grid-cols-4 gap-2">
+            {[...Array(20)].map((_, i) => (
+              <div key={i} className={`w-5 h-5 ${i % 2 === 0 ? 'bg-purple-600' : 'bg-transparent'}`}></div>
+            ))}
+          </div>
+        </div>
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 w-32 h-64 opacity-30 pointer-events-none">
+          <div className="grid grid-cols-4 gap-2">
+            {[...Array(20)].map((_, i) => (
+              <div key={i} className={`w-5 h-5 ${i % 3 === 0 ? 'bg-purple-600' : 'bg-transparent'}`}></div>
+            ))}
+          </div>
         </div>
 
-        <h1 className="flex justify-center my-8 text-2xl">
-          Note: Working Professionals are not eligible to participate in the
-          hackathon.
-        </h1>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="text-purple-500 font-bold tracking-[0.4em] mb-4 block text-xs md:text-sm">ABOUT HACKATHON</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-12 tracking-tight">WHO CAN PARTICIPATE?</h2>
+          
+          <p className="max-w-4xl mx-auto text-base md:text-lg text-gray-400 leading-relaxed mb-12 font-medium">
+            Welcome to the Lorem Ipsum Innovation Hackathon, an exhilarating platform designed to foster innovation and creativity in the domain of advanced technology and futuristic solutions. Organized by the National Center for Applied Research and supported by Hack2skill, this hackathon invites undergraduate students, graduate/postgraduate students, and PhD researchers to collaborate and solve critical challenges.
+          </p>
+
+          <motion.button 
+            whileHover={{ scale: 1.05, shadow: "0 0 20px rgba(124,58,237,0.6)" }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-purple-600 text-white px-12 py-4 rounded-full font-bold text-lg shadow-[0_10px_30px_rgba(124,58,237,0.3)] transition-all"
+          >
+            Apply Now
+          </motion.button>
+        </motion.div>
+
+        {/* Participation Cards */}
+        <div className="mt-32 max-w-6xl mx-auto">
+          <span className="text-purple-500 font-bold block mb-12 tracking-widest text-sm uppercase">Who can participate?</span>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              { title: "Undergraduate", subtitle: "Students" },
+              { title: "Graduate/ Postgraduate", subtitle: "Students" },
+              { title: "PhD Students/", subtitle: "Research Scholars" }
+            ].map((card, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ y: -12, scale: 1.03 }}
+                className="relative group p-10 rounded-2xl border border-white/5 overflow-hidden text-center min-h-[180px] flex flex-col justify-center"
+                style={{ background: `url(${eligibilityBg})`, backgroundSize: 'cover' }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 to-black/90 z-0"></div>
+                <div className="relative z-10">
+                  <h4 className="text-xl font-bold mb-1 group-hover:text-purple-400 transition-colors">{card.title}</h4>
+                  <p className="text-gray-400 font-medium">{card.subtitle}</p>
+                </div>
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity blur-2xl"></div>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="mt-20 text-gray-500 text-sm font-bold tracking-wide">
+            Note: Working Professionals are not eligible to participate in the hackathon.
+          </p>
+        </div>
       </section>
     </main>
   );

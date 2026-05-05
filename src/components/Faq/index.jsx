@@ -1,85 +1,83 @@
-import page2 from "../../assets/img/page_2.jpg";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import faqBrain from "../../assets/img/faq-bg.jpg";
 
 const faqs = [
   {
     id: "01",
     question: "Who can participate in the hackathon?",
-    answer:
-      "Undergraduate, Graduate/Postgraduate, and PhD students currently enrolled in an Indian institution.",
+    answer: "Undergraduate, Graduate/Postgraduate, and PhD students currently enrolled in an Indian institution."
   },
   {
     id: "02",
     question: "What should be the ideal team size?",
-    answer:
-      "Each team must consist of 3 to 4 members, possibly from different colleges/universities.",
+    answer: "Each team must consist of 3 to 4 members, possibly from different colleges/universities."
   },
   {
     id: "03",
     question: "What is the cost of participating?",
-    answer:
-      "Participation is entirely free. No registration or submission fee is required.",
+    answer: "Participation is entirely free. No registration or submission fee is required."
   },
   {
     id: "04",
-    question: "Who is eligible for this edition?",
-    answer:
-      "Only current students from the 2024–25 academic year are eligible to apply.",
-  },
+    question: "Can a recent graduate participate?",
+    answer: "Only current students from the 2024–25 academic year are eligible."
+  }
 ];
 
 function Faq() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
   return (
-    <>
-      <div
-        className="min-h-[50vh] bg-cover bg-center"
-        style={{ backgroundImage: `url(${page2})` }}
-      ></div>
+    <section id="faqs" className="relative py-32 bg-bg-dark overflow-hidden">
+      {/* Background Brain Image */}
+      <div className="absolute inset-0 flex justify-center items-start opacity-30 pointer-events-none mt-[-10%]">
+        <img src={faqBrain} alt="" className="w-full max-w-[800px] object-contain mix-blend-lighten" />
+      </div>
 
-      <div className="relative z-10 py-20 px-6 md:px-20 bg-gradient-to-b from-[#080808] to-[#15002b] text-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-semibold mb-16">
-            FREQUENTLY ASKED QUESTION
-          </h2>
+      <div className="container mx-auto px-6 relative z-10">
+        <h2 className="text-center text-white text-lg font-bold tracking-[0.3em] mb-32 uppercase">
+          FREQUENTLY ASKED QUESTION
+        </h2>
 
-          <div className="space-y-12 divide-y divide-white/20">
-            {faqs.map((faq, index) => (
-              <div
-                key={faq.id}
-                className="grid grid-cols-1 md:grid-cols-12 items-start pt-8"
+        <div className="max-w-4xl mx-auto space-y-2">
+          {faqs.map((faq, idx) => (
+            <div key={idx} className="border-b border-white/10 last:border-0">
+              <button
+                onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
+                className="w-full flex items-center gap-10 py-10 text-left group"
               >
-                <div className="md:col-span-1">
-                  <div
-                    className={`w-10 h-10 rounded-md flex items-center justify-center text-sm font-semibold  ${
-                      index % 2 === 0
-                        ? "bg-white text-black"
-                        : "bg-purple-800 text-purple-300"
-                    }`}
-                  >
-                    {faq.id}
-                  </div>
-                </div>
+                <span className="text-xl font-bold font-mono text-gray-500 group-hover:text-purple-500 transition-colors">
+                  {faq.id}
+                </span>
+                <span className={`text-xl font-bold flex-1 transition-colors ${activeIndex === idx ? 'text-purple-500' : 'text-white'}`}>
+                  {faq.question}
+                </span>
+                <span className="text-sm text-gray-400 group-hover:text-white transition-all transform group-hover:translate-x-1">
+                  {activeIndex === idx ? '−' : '+'}
+                </span>
+              </button>
 
-                <div className="md:col-span-5">
-                  <h3
-                    className={`text-lg font-medium ${
-                      index % 2 === 0 ? "text-white" : "text-purple-400"
-                    }`}
+              <AnimatePresence>
+                {activeIndex === idx && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
                   >
-                    {faq.question}
-                  </h3>
-                </div>
-
-                <div className="md:col-span-6 mt-4 md:mt-0">
-                  <p className="text-white/80 text-md leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+                    <div className="pb-10 pl-[84px] pr-10 text-gray-400 text-lg leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
         </div>
       </div>
-    </>
+    </section>
   );
 }
 
